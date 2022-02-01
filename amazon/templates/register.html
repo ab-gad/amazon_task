@@ -1,0 +1,30 @@
+{% extends 'nav.html' %}
+{% block 'title' %}
+    Register
+{% endblock %}  
+
+{% block 'content' %}  
+  <div class="container">
+      {{method}}
+    <form method="POST">
+        {% csrf_token %}
+        <!-- EXTREMELY IMPORTANT whenever you use POST method -->
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name">
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name">
+            <br>
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+            <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            <br>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+  </div>
+{% endblock %}

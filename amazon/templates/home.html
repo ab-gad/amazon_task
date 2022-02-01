@@ -1,9 +1,9 @@
 {% extends 'nav.html' %}
-
+<!-- if u will use new static files here u must use loadstatic and use it after extends not before  -->
 {% block 'title' %}
     Home
 {% endblock %}
 
 {% block 'content' %}  
-    <h2 class="text-center">Welcome {{NAME}}</h2>
+    <h2 class="text-center">Welcome {{first_name}} {{last_name}}</h2>
 {% endblock %}

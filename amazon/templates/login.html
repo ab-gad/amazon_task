@@ -1,0 +1,24 @@
+{% extends 'nav.html' %}
+{% block 'title' %}
+    Login
+{% endblock %}  
+
+{% block 'content' %}  
+  <div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <!-- EXTREMELY IMPORTANT whenever you use POST method -->
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            <br>
+        </div>
+        {{errmsg}}
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+  </div>
+{% endblock %}
