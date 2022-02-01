@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% block 'crud' %}
+    <h2>UPDATE USER:</h2> 
+    <form method="POST">
+        {% csrf_token %}
+        <!-- EXTREMELY IMPORTANT whenever you use POST method -->
+        <div class="form-group my-4">
+            
+            <label for="first_name">First Name:</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" value="{{selectedUser.first_name}}">
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" value="{{selectedUser.last_name}}">
+            <br>
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{selectedUser.email}}">
+            <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" value="{{selectedUser.password}}">
+            <br>
+            <button type="submit" class="btn btn-primary">UPDATE USER</button>
+        </div>
+        <p>
+            {{msg}}
+        </p>
+      </form>
+{% endblock %}

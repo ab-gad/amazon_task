@@ -1,12 +1,7 @@
-{% extends 'nav.html' %}
-{% block 'title' %}
-    Register
-{% endblock %}  
-
-{% block 'content' %}  
-  <div class="container">
-      {{method}}
-      <form method="POST">
+{% extends 'home.html' %}
+{% block 'crud' %}
+    <h2>CREATE USER:</h2> 
+    <form method="POST">
         {% csrf_token %}
         <!-- EXTREMELY IMPORTANT whenever you use POST method -->
         <div class="form-group">
@@ -24,7 +19,7 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
             <br>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
-      </form>
-  </div>
+        <button type="submit" class="btn btn-primary">CREATE USER</button>
+        <h2 class="my-4 text-success">{{msg}}</h2>
+    </form>
 {% endblock %}

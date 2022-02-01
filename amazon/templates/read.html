@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% block 'crud' %}
+    <h2>READ & EDITE USERS:</h2> 
+    <form method="POST" class="my-4">
+        {% csrf_token %}
+        <!-- EXTREMELY IMPORTANT whenever you use POST method -->
+        <div class="form-group">
+            <label for="id">Type a user ID or * to read all users :</label>
+            <input type="text" class="form-control" id="id" name="id" placeholder="Enter First Name">
+            <br>
+        </div>
+        <button type="submit" class="btn btn-primary">SELECT USER/S</button>
+    </form>
+    <p class="text-danger h4 text-center">{{msg}}</p>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for u in allusers %}
+                <tr>
+                    <th scope="row">{{u.id}}</th>
+                    <td>{{u.first_name}} {{u.last_name}}</td>
+                    <td>{{u.email}}</td>
+                    <td><a href="/amazon/update/{{u.id}}" class="btn btn-info me-2">UPDATE</a><a href="/amazon/delete/{{u.id}}" class="btn btn-danger">DELETE</a></td>
+                </tr>
+            {% endfor %}
+            {% if selectedUser %}
+            <tr>
+                <th scope="row">{{selectedUser.id}}</th>
+                <td>{{selectedUser.first_name}} {{selectedUser.last_name}}</td>
+                <td>{{selectedUser.email}}</td>
+                <td><a href="/amazon/update/{{selectedUser.id}}" class="btn btn-info me-2">UPDATE</a><a href="/amazon/delete/{{selectedUser.id}}" class="btn btn-danger">DELETE</a></td>
+            </tr>
+            {% endif %}
+
+        </tbody>
+      </table>
+
+{% endblock %}
