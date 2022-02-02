@@ -1,25 +1,27 @@
 {% extends 'home.html' %}
 {% block 'crud' %}
-    <h2>UPDATE USER:</h2> 
+    <h2>UPDATE TRAINEE:</h2> 
     <form method="POST">
         {% csrf_token %}
         <!-- EXTREMELY IMPORTANT whenever you use POST method -->
         <div class="form-group my-4">
-            
             <label for="first_name">First Name:</label>
-            <input type="text" class="form-control" id="first_name" name="first_name" value="{{selectedUser.first_name}}">
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" value="{{selectedtrainee.first_name}}">
             <br>
             <label for="last_name">Last Name:</label>
-            <input type="text" class="form-control" id="last_name" name="last_name" value="{{selectedUser.last_name}}">
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" value="{{selectedtrainee.last_name}}">
             <br>
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" id="email" name="email" value="{{selectedUser.email}}">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{selectedtrainee.email}}">
             <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
             <br>
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" value="{{selectedUser.password}}">
+            <label for="track_id">Track Id:</label>
+            <input type="text" class="form-control" id="track_id" name="track_id" placeholder="Enter Track Id" value="{{selectedtrainee.track_id.id}}">
             <br>
-            <button type="submit" class="btn btn-primary">UPDATE USER</button>
+            <label for="intake_id">Intake Id:</label>
+            <input type="text" class="form-control" id="intake_id" name="intake_id" placeholder="Enter Intake Id" value="{{selectedtrainee.intake_id.id}}">
+            <br>
+            <button type="submit" class="btn btn-primary">UPDATE TRAINEE</button>
         </div>
         <p>
             {{msg}}

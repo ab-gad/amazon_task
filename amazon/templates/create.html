@@ -1,6 +1,6 @@
 {% extends 'home.html' %}
 {% block 'crud' %}
-    <h2>CREATE USER:</h2> 
+    <h2>CREATE A Trainee:</h2> 
     <form method="POST">
         {% csrf_token %}
         <!-- EXTREMELY IMPORTANT whenever you use POST method -->
@@ -15,11 +15,15 @@
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
             <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
             <br>
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            <label for="track_id">Track Id:</label>
+            <input type="text" class="form-control" id="track_id" name="track_id" placeholder="Enter Track Id">
             <br>
+            <label for="intake_id">Intake Id:</label>
+            <input type="text" class="form-control" id="intake_id" name="intake_id" placeholder="Enter Intake Id">
+            <br>
+            
         </div>
-        <button type="submit" class="btn btn-primary">CREATE USER</button>
+        <button type="submit" class="btn btn-primary">CREATE TRAINEE</button>
         <h2 class="my-4 text-success">{{msg}}</h2>
     </form>
 {% endblock %}

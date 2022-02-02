@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+{% block 'crud' %}
+    <h2>CREATE A TRACK:</h2> 
+    <form method="POST">
+        {% csrf_token %}
+        <!-- EXTREMELY IMPORTANT whenever you use POST method -->
+        <div class="form-group py-4">
+            {{trackForm.as_p}}
+        </div>
+        <button type="submit" class="btn btn-primary">CREATE TRACK</button>
+        <h2 class="my-4 text-success">{{msg}}</h2>
+    </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% block 'crud' %}
+    <h2>TRACKS LIST:</h2>
+    <small class="text-muted">(Generic Class based ListView)</small> 
+    <div>
+        <!-- 
+            - REMEMBER name of this Template and conetxt is Not OPTIONAL 
+            - You MUST put it in a folder with THE same name of ur APP
+        -->
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Track Id</th>
+                <th scope="col">Track Name</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for t in object_list %}
+                    <tr>
+                        <th scope="row">{{t.id}}</th>
+                        <td>{{t.name}}</td>
+                        <td><a href="/amazon/update/{{t.id}}" class="btn btn-info me-2">UPDATE</a><a href="/amazon/delete/{{t.id}}" class="btn btn-danger">DELETE</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+{% block 'crud' %}
+    <h2>CREATE AN INTAKE:</h2> 
+    <form method="POST">
+        {% csrf_token %}
+        <!-- EXTREMELY IMPORTANT whenever you use POST method -->
+        <div class="form-group py-4">
+            {{intakeForm.as_p}}
+        </div>
+        <small class="my-1 text-danger">{{errmsg}}</small>
+        <button type="submit" class="btn btn-primary">CREATE INTAKE</button>
+        <h2 class="my-4 text-success">{{msg}}</h2>
+    </form>
+{% endblock %}

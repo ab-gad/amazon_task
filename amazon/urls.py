@@ -13,6 +13,11 @@ urlpatterns = [
     path('read/', read, name = 'read'),
     path('update/<id>', update, name = 'update'),
     path('delete/<id>', delete, name = 'delete'),
-    path('logout/', logout, name = 'logout')
+    path('logout/', logout, name = 'logout'),
+    path('createTrack/', createTrack, name = 'createTrack'),
+    path('createTrainee/', createTrainee, name = 'createTrainee'),
+    path('CreateIntake/', CreateIntake.as_view(), name = 'CreateIntake'),
+    path('TrackList/', TrackList.as_view(), name = 'TrackList'),
+    
     # path('checklogin/', checklogin, name = 'checklogin'),
 ]

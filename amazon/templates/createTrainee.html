@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+{% block 'crud' %}
+    <h2>CREATE A TRAINEE:</h2>
+    <small class="text-muted">(Model Form Veision)</small> 
+    <form method="POST">
+        {% csrf_token %}
+        <!-- EXTREMELY IMPORTANT whenever you use POST method -->
+        <div class="form-group py-4">
+            {{traineeForm.as_p}}
+        </div>
+        <button type="submit" class="btn btn-primary">CREATE A TRAINEE</button>
+        <h2 class="my-4 text-success">{{msg}}</h2>
+    </form>
+{% endblock %}
